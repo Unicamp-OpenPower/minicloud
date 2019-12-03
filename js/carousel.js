@@ -1,19 +1,4 @@
-function ajax_query() {
-    var folder = "carousel/";
-    return $.ajax({
-        url : folder,
-        success: function (data) {
-            $(data).find("a").attr("href", function (i, val) {
-                if( val.match(/\.(jpe?g|png|gif)$/) ) {
-                    $("#inject").append( "<img src='"+ folder + val +"'>" );
-                } 
-            });
-        }
-    });
-};
-
-$.when(ajax_query()).done(function(){
-    console.log("TESTING")
+$(document).ready(function(){
     $('.customer-logos').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
