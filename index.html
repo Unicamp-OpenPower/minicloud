@@ -29,6 +29,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <script src="js/carousel.js"></script>
 
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /* Make an HTTP request using the attribute value as the file name: */
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /* Remove the attribute, and call this function once more: */
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /* Exit the function: */
+                return;
+            }
+            }
+        }
+    </script>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -56,6 +86,7 @@
             </div>
         </div>
     </div>
+
     <!-- Navigation-->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -123,6 +154,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Projects Carousel -->
     <div class="container">
         <h2 style="font-size: calc(16px + 3vw);">Related Projects</h2>
@@ -144,39 +176,11 @@
     </div>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container" style="background-color:White; overflow: hidden;">
-        <iframe
-                 name="iframe1"
-                 height='800'
-                 align="middle"
-                 class="embed-responsive-item"
-                 src="https://docs.google.com/document/d/1oXavfkXGvtVFKRRiHcf4SPUcUsjM-EdoMTinnRsuXB4/pub?embedded=true"
-                 width="100%"
-                 frameborder="0"
-                 marginheight="0"
-                 marginwidth="0"
-                 style="position: relative;">
-        </iframe>
-        </div>
-    </section>
+    <div w3-include-html="sections/about/about.html"></div>
+
     <!-- Notifications -->
-    <section id="notifications" class="section">
-        <div class="container" style="background-color:White; overflow: hidden;">
-        <iframe
-                 name="iframe1"
-                 height='800'
-                 align="middle"
-                 class="embed-responsive-item"
-                 src="https://docs.google.com/document/d/1ecXW0UASxA8nqyULL2xoUGZo6nlsNOC0CelTTcZkiPM/pub?embedded=true"
-                 width="100%"
-                 frameborder="0"
-                 marginheight="0"
-                 marginwidth="0"
-                 style="position: relative;">
-        </iframe>
-        </div>
-    </section>
+    <div w3-include-html="sections/notifications/notifications.html"></div>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111156629-1"></script>
     <script>
@@ -185,5 +189,11 @@
         gtag('js', new Date());
         gtag('config', 'UA-111156629-1');
     </script>
+
 </body>
+
+<script>
+    includeHTML();
+</script>
 </html>
+
