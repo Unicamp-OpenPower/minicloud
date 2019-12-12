@@ -32,7 +32,7 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="display: none;">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDN28BX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -163,8 +163,14 @@
 
 </body>
 
-<script>
-    includeHTML();
-</script>
+<!-- This will insert other html file in the page (provided by W3schools) -->
+<script>includeHTML();</script>
+
 </html>
 
+<!-- This will fade in the page after its ready -->
+<script type = "text/javascript"> 
+    setTimeout(function(){
+        $("body").fadeIn(300);
+    }, 150);
+</script>
