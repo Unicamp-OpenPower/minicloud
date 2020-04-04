@@ -3,7 +3,7 @@ name: 'Minicloud: Issue Report'
 about: Create a report to help us improve
 title: ''
 labels: bug
-assignees: lcnzg, rpsene
+assignees: rpsene, jr-santos98, sitio-couto
 
 ---
 
