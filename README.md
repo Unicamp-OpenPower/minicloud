@@ -2,6 +2,12 @@
 
 [Scrolling Nav](http://startbootstrap.com/template-overviews/scrolling-nav/) is an unstyled one page starter template with a collapsing, smooth scrolling navigation bar for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).  Minicloud uses this template as the bases for its landing page.
 
+## Test locally
+
+Before uploading any changes to the site. Test locally using the command below:
+
+`python -m http.server`
+
 ## Getting Started
 
 To begin using this template, choose one of the following options to get started:
